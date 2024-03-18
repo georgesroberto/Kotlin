@@ -1,6 +1,6 @@
-@OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true)
-@Composable
+// @OptIn(ExperimentalMaterial3Api::class)
+// @Preview(showBackground = true)
+// @Composable
 fun LemonadeApp() {
 
     var currentStep by remember { mutableIntStateOf(1) }
@@ -83,7 +83,7 @@ fun LemonadeApp() {
     }
 }
 
-@Composable
+// @Composable
 fun LemonTextAndImage(
     textLabelResourceId: Int,
     drawableResourceId: Int,
