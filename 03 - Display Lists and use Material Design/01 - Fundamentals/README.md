@@ -20,3 +20,10 @@
   - hashCode
   - equals
   - copy
+
+## Singleton Class
+
+- They help us to define objects that requie a single instance.
+- Examples
+  - Player stats in a game
+  - Authentication object

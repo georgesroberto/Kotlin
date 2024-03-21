@@ -29,6 +29,23 @@ data class DQuestion <T>(
 )
 
 
+// SINGLETON class
+// object StudentProgress{
+//     var total: Int = 10
+//     var answered: Int = 5
+// }
+
+class Quiz{
+    var question = EQuestion<Int>("What is my age?", 10, Difficulty.HARD)
+
+    companion object StudentProgress{
+        var total: Int = 10
+        var answered: Int = 5
+    }
+}
+
+
+
 fun main() {
     // GENERIC class
     val questionGeneric = GQuestion<String>("What is my name....", "Georges", "Easy")
@@ -42,4 +59,9 @@ fun main() {
     val questionData = DQuestion<Int>("What is my age..", 10, Difficulty.MEDIUM)
     println(questionData)
 
+    // SINGLETON class
+
+    // println("Scored ${StudentProgress.answered} of ${StudentProgress.total}.")    
+    
+    println("Scored ${Quiz.answered} of ${Quiz.total}.")
 }
