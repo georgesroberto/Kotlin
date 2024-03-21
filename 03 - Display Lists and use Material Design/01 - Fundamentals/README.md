@@ -3,7 +3,6 @@
 ## Generics
 
 - Help us to inherit property of a class but allowing for an unspecified data type
--
 
 ## Enums
 
@@ -27,3 +26,58 @@
 - Examples
   - Player stats in a game
   - Authentication object
+
+## Extendable property
+
+- They don't store data hence only use get()
+- Example
+
+  ```kt
+    val Quiz.StudentProgress.progressText: String
+      get() = "Scored ${answer} of ${total}"
+  ```
+
+## Extensible function
+
+- Same Syntax as property
+- Example
+
+  ```kt
+    fun Quiz.StudentProgress.printProgressBar(){
+      repeat(Quiz.answered){ print("▓") }
+      repeat(Quiz.total - Quiz.answered){ print("▒") }
+      println()
+      println(Quiz.progressText)
+  }
+  ```
+
+## Interface
+
+- Instead of using Extendable property and methods, all that can be done in an interfce
+- We simply frfinr (in thr interface) the property and method
+- Then we override them in the extended class.
+
+## let() and it
+
+- Hwelps us to reduce repetition of recurring object
+- Example
+
+  ```kt
+    fun printQuiz(){
+      println(question.questionText)
+      println(question.answer)
+      println(question.difficulty)
+    }
+  ```
+
+  **Replace with**
+
+  ```kt
+    fun printQuiz(){
+      question.let(){
+        println(it.questionText)
+        println(it.answer)
+        println(it.difficulty)
+      }
+    }
+  ```

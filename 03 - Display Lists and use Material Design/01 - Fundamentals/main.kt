@@ -44,6 +44,49 @@ class Quiz{
     }
 }
 
+// EXTEND property
+val Quiz.StudentProgress.progressText: String
+    get() = "${answered} of ${total} answered"
+// EXTEND method
+fun Quiz.StudentProgress.printProgressBar(){
+    repeat(Quiz.answered){ print("▓") }
+    repeat(Quiz.total - Quiz.answered){ print("▒") }
+    println()
+    println(Quiz.progressText)
+}
+
+
+// INTERFACE TO REPLACE EXTENSIBLES
+
+interface ProgressPrintable {
+    val progressText: String
+
+    fun printProgressBar(){}
+}
+
+
+// EXTEND INTERFACE
+class IQuiz : ProgressPrintable {
+    var question = EQuestion<Int>("What is my age?", 10, Difficulty.HARD)
+
+    companion object StudentProgress{
+        var total: Int = 10
+        var answered: Int = 5
+    }
+
+    override val progressText: String
+        get() = "${answered} of ${total} answered"
+
+    override fun printProgressBar() {
+        repeat(Quiz.answered) { print("▓") }
+        repeat(Quiz.total - Quiz.answered) { print("▒") }
+        println()
+        println(progressText)
+    }
+
+}
+
+
 
 
 fun main() {
@@ -60,8 +103,18 @@ fun main() {
     println(questionData)
 
     // SINGLETON class
-
     // println("Scored ${StudentProgress.answered} of ${StudentProgress.total}.")    
-    
     println("Scored ${Quiz.answered} of ${Quiz.total}.")
+
+    // EXTEND property
+    println(Quiz.progressText)
+    // EXTEND method
+    println(Quiz.printProgressBar())
+
+
+    // INTERFACE INSTEAD OF EXTENSIBLE
+    // DELETE EXTEND PROPERTY AND METHOD
+    println(Quiz.printProgressBar())
+    
+
 }
