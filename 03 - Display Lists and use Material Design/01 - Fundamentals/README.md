@@ -113,8 +113,27 @@
     println("Future Moon" in solarSystem) //outputs false
   ```
 
-### List and Mutable List
+  **List and Mutable List**
 
-- They are interfeaces and can be extended
-- List is immutable (Read - Only)
-- Mutable List ( Can be modified)
+  - They are interfeaces and can be extended
+  - List is immutable (Read - Only)
+  - Mutable List ( Can be modified)
+
+## Sets
+
+- Behave like an array of lists
+- Quicker to find searched value than lists
+- Uses more memory
+- Also has setOf() and mutableSetOf()
+
+## Maps
+
+- Stores data in key value pairs
+- Quicker to find searched value than lists
+- Also has mapOf() and mutableMapOf()
+
+  ```kt
+    val solarSystem = mapOf(
+      "Mercury" to 8
+    )
+  ```
