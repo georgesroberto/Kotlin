@@ -81,3 +81,40 @@
       }
     }
   ```
+
+---
+
+## Arrays
+
+- Stores a collection of values with similar characteristics
+- Doesn't allow addition of nw elements
+- Cannot be resized
+- use `arraOf(elements)`
+
+## Lists
+
+- Allows for resizing
+- Stores data as arrays
+- Has property like
+  - get(index)
+  - indexOf(element)
+  - size()
+  - add(element)
+  - removeAt(index)
+  - remove(element)
+  - contains(element)
+- Iteration
+
+  ```kt
+    for(el in list){
+      println(el)
+    }
+
+    println("Future Moon" in solarSystem) //outputs false
+  ```
+
+### List and Mutable List
+
+- They are interfeaces and can be extended
+- List is immutable (Read - Only)
+- Mutable List ( Can be modified)
