@@ -35,3 +35,30 @@ To save a value that needs to survive a configuration change, declare its variab
 4. Activityclass
 5. ComponentActivityclass
 6. Activity Developer Guide
+
+## Writing Tests
+
+Congratulations! You learned how to define test strategy and implemented unit tests to test the ViewModel and StateFlow in the Unscramble app.
+
+As you continue to build Android apps, make sure that you write tests alongside your app features to confirm that your apps work properly throughout the development process.
+
+### Summary
+
+Use the testImplementation configuration to indicate that the dependencies apply to the local test source code and not the application code.
+
+Aim to categorize tests in three scenarios: Success path, error path, and boundary case.
+
+A good unit test has at least four characteristics: they are focused, understandable, deterministic, and self-contained.
+
+Test methods are executed in isolation to avoid unexpected side effects from mutable test instance state.
+
+By default, before each test method executes, JUnit creates a new instance of the test class.
+
+Code coverage plays a vital role to determine whether you adequately tested the classes, methods, and lines of code that make up your app.
+
+#### Learn more testing
+
+Fundamentals of testing Android apps
+Using
+
+    - Bill of Materials | Jetpack Compose | Android Developers
