@@ -1,6 +1,10 @@
 # Learn Navigation
 
-1. ## Define Routes
+## Cupcake app overview
+
+![Graphic image](video.gif)
+
+## Define Routes
 
 Parts of the Navigation Component
 The Navigation component has three main parts:
@@ -13,19 +17,26 @@ The Navigation component has three main parts:
 
 In this codelab, you'll focus on the NavController and the NavHost. Within the NavHost, you'll define the destinations for the Cupcake app's NavGraph.
 
-2. ## Navigate between routes
+## Navigate between routes
 
-Now that you've defined your routes and mapped them to composables in a NavHost, it's time to navigate between screens. The NavHostController—the navController property from calling rememberNavController()—is responsible for navigating between routes. Notice, however, that this property is defined in the CupcakeApp composable. You need a way to access it from the different screens in your app.
+Now that you've defined your routes and mapped them to composables in a **NavHost**, it's time to navigate between screens.
+
+The NavHostController
+The _navController property_ from calling \_rememberNavController()
+Responsible for navigating between routes. Notice, however, that this property is defined in the CupcakeApp composable. You need a way to access it from the different screens in your app.
 
 Easy, right? Just pass the navController as a parameter to each of the composables.
 
 While this approach works, it's not an ideal way to architect your app. A benefit of using a NavHost to handle your app's navigation is that navigation logic is kept separate from individual UI. This option avoids some of the major drawbacks of passing the navController as a parameter.
 
 Navigation logic is kept in one place, which can make your code easier to maintain and prevent bugs by not accidentally giving individual screens free reign of navigation in your app.
-In apps that need to work on different form factors (like portrait mode phone, foldable phone, or large screen tablet), a button may or may not trigger navigation, depending on the app's layout. Individual screens should be self-contained and don't need to be aware of other screens in the app.
-Instead, our approach is to pass a function type into each composable for what should happen when a user clicks the button. That way, the composable and any of its child composables decide when to call the function. However, navigation logic isn't exposed to the individual screens in your app. All the navigation behavior is handled in the NavHost.
 
-3. ## Navigate to another app
+In apps that need to work on different form factors (like portrait mode phone, foldable phone, or large screen tablet), a button may or may not trigger navigation, depending on the app's layout. Individual screens should be self-contained and don't need to be aware of other screens in the app.
+
+**Instead**, our approach is to pass a function type into each composable for what should happen when a user clicks the button. That way, the composable and any of its child composables decide when to call the function.
+However, navigation logic isn't exposed to the individual screens in your app. All the navigation behavior is handled in the NavHost.
+
+## Navigate to another app
 
 So far, you've learned how to navigate to a different screen in your app and how to navigate back to the home screen. There's just one other step to implement navigation in the Cupcake app. On the order summary screen, the user can send their order to another app. This selection brings up a ShareSheet—a user interface component that covers the bottom part of the screen—that shows sharing options.
 
@@ -35,8 +46,8 @@ An intent is a request for the system to perform some action, commonly presentin
 
 The basic process for setting up an intent is as follows:
 
-Create an intent object and specify the intent, such as ACTION_SEND.
-Specify the type of additional data being sent with the intent. For a simple piece of text, you can use "text/plain", though other types, such as "image/_" or "video/_", are available.
+Create an intent object and specify the intent, such as ACTION*SEND.
+Specify the type of additional data being sent with the intent. For a simple piece of text, you can use "text/plain", though other types, such as "image/*" or "video/\_", are available.
 Pass any additional data to the intent, such as the text or image to share, by calling the putExtra() method. This intent will take two extras: EXTRA_SUBJECT and EXTRA_TEXT.
 Call the startActivity() method of context, passing in an activity created from the intent.
 We'll walk you through how to create the share action intent, but the process is the same for other types of intents. For future projects, you're encouraged to refer to the documentation as needed for the specific type of data and necessary extras.
@@ -57,7 +68,7 @@ You also learned how to send data to another app using intents as well as custom
 
 In the upcoming units, you'll continue using these skills as you work on several other multi-screen apps of growing complexity.
 
-**Learn More**
+### Learn More
 
 - Navigating with Compose
 - Navigation principles
