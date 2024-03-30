@@ -9,5 +9,3 @@
 Currently app loses it's state when rotated to landscape
 
 [App GitHub Link](https://github.com/georgesroberto/Learn)
-
-
