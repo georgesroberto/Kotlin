@@ -44,6 +44,15 @@ fun MarsPhotoCard(photo: MarsPhoto, modifier: Modifier = Modifier) {
 
 ```kt
 
+when (marsUiState) {
+       // ...
+       is MarsUiState.Success -> PhotosGridScreen(marsUiState.photos, modifier)
+       // ...
+}
+
+
+// Additional code
+
 import androidx.compose.foundation.lazy.grid.items
 
 @Composable
@@ -63,3 +72,36 @@ fun PhotosGridScreen(
 
 ```
 
+## Retry Button
+
+- Adding a retry button to cal getPhotos again
+
+```kt
+
+@Composable
+fun ErrorScreen(retryAction: () -> Unit, modifier: Modifier = Modifier) {
+    Column(
+        // ...
+    ) {
+        Image(
+            // ...
+        )
+        Text(//...)
+        Button(onClick = retryAction) {
+            Text(stringResource(R.string.retry))
+        }
+    }
+}
+
+@Composable
+fun HomeScreen(
+   marsUiState: MarsUiState, retryAction: () -> Unit, modifier: Modifier = Modifier
+) {
+   when (marsUiState) {
+       //...
+
+       is MarsUiState.Error -> ErrorScreen(retryAction, modifier = modifier.fillMaxSize())
+   }
+}
+
+```
